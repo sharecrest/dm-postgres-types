@@ -7,7 +7,7 @@ module DataMapper
     class PgHStore < Object
       def load(value)
         return nil unless value
-        values = value.split(", ")
+        values = value.split("\", ")
         values.map! do |val|
           k, v = val.split("=>")
           [unescape_double_quote(k),unescape_double_quote(unescape_nil(v))]
